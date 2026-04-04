@@ -3,7 +3,7 @@ services:
     name: portfolio-api
     runtime: node
     buildCommand: cd server && npm install && npm run build
-    startCommand: cd server && npm start
+    startCommand: node /opt/render/project/server/dist/index.js
     envVars:
       - key: PORT
         value: 4000
