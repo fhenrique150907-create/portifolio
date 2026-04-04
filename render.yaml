@@ -1,0 +1,36 @@
+services:
+  - type: web
+    name: portfolio-api
+    runtime: node
+    buildCommand: cd server && npm install && npm run build
+    startCommand: cd server && npm start
+    envVars:
+      - key: PORT
+        value: 4000
+      - key: NODE_ENV
+        value: production
+      - key: DB_HOST
+        fromDatabase:
+          name: portfolio
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: portfolio
+          property: port
+      - key: DB_USER
+        fromDatabase:
+          name: portfolio
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: portfolio
+          property: password
+      - key: DB_NAME
+        fromDatabase:
+          name: portfolio
+          property: database
+
+databases:
+  - name: portfolio
+    engine: postgres
+    version: 13
