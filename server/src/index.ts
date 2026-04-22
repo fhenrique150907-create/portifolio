@@ -31,14 +31,15 @@ app.get("/api/profile", async (_req, res) => {
       bio: "Construo interfaces modernas e APIs robustas para negócios digitais.",
       instagram: "https://instagram.com/fra.vios",
       whatsapp: "https://wa.me/5535997810561",
-      email: "contato@exemplo.com",
+      email: "fhenrique150907@gmail.com",
       phone: "(35) 99781-0561",
       location: "Minas Gerais, Brasil",
       projects,
-    });
+    });    
   } catch (error) {
     res.status(500).json({ message: "Erro ao buscar dados do portfolio." });
   }
+
 });
 
 app.post("/api/projects", async (req, res) => {
