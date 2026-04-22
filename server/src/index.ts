@@ -37,7 +37,6 @@ app.get("/api/profile", async (_req, res) => {
       projects,
     });
   } catch (error) {
-    console.error(error);
     res.status(500).json({ message: "Erro ao buscar dados do portfolio." });
   }
 });
@@ -78,7 +77,6 @@ app.post("/api/projects", async (req, res) => {
       res.status(201).json(row);
     }
   } catch (error) {
-    console.error(error);
     res.status(500).json({ message: "Erro ao criar projeto." });
   }
 });
@@ -93,8 +91,9 @@ async function start(): Promise<void> {
     console.warn(
       "PostgreSQL indisponível — a API está em modo memória (novos projetos somem ao reiniciar o servidor)."
     );
-    console.warn(error);
+    // console.warn(error); // Suppressed PG connection error for clean logs
   }
+
 
   app.listen(PORT, () => {
     console.log(`Servidor em execução em http://localhost:${PORT}`);

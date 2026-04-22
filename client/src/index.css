@@ -1,10 +1,8 @@
+/* Custom global resets compatible with App.css */
 * {
   box-sizing: border-box;
 }
 
-body {
-  margin: 0;
-  font-family: Inter, Arial, sans-serif;
-  background: #f8fafc;
-  color: #0f172a;
+html {
+  scroll-behavior: smooth;
 }
